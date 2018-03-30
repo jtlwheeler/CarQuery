@@ -31,10 +31,10 @@ export class CarQuery {
         };
 
         if (soldInUSA) {
-            Object.assign(this.config.params, {sold_in_us: true});
+            Object.assign(this.config.params, { sold_in_us: true });
         }
-        
-        const response = await axios(this.config);
+
+        const response = await axios.request(this.config);
         const makes: Make[] = response.data.Makes.map((make: any) => {
             const newMake: Make = {
                 id: make.make_id,
