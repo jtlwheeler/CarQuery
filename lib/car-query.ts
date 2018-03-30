@@ -1,13 +1,20 @@
 import Years from './Years';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import Make from './Make';
 
 const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
 
 export class CarQuery {
-    async getYears(): Promise<Years> {
+    private config: AxiosRequestConfig = {
+        baseURL: CARQUERY_API_URL
+    };
 
-        const response = await axios.get(`${CARQUERY_API_URL}/?cmd=getYears`);
+    async getYears(): Promise<Years> {
+        this.config.params = {
+            cmd: 'getYears'
+        };
+
+        const response = await axios(this.config);
 
         const years: Years = {
             minYear: response.data.Years.min_year,
@@ -18,7 +25,12 @@ export class CarQuery {
     }
 
     async getMakes(year: number): Promise<Make[]> {
-        const response = await axios.get(`${CARQUERY_API_URL}/?cmd=getMakes&year=${year}`)
+        this.config.params = {
+            cmd: 'getMakes',
+            year: year
+        };
+        
+        const response = await axios(this.config);
         const makes: Make[] = response.data.Makes.map((make: any) => {
             const newMake: Make = {
                 id: make.make_id,
