@@ -3,6 +3,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import Make from './Make';
 import { Model } from './Model';
 import { BodyStyle } from './BodyStyle';
+import { GetModelsParams } from './GetModelsParams';
 
 const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
 
@@ -78,11 +79,4 @@ export class CarQuery {
 
         return Promise.resolve(models);
     }
-}
-
-export interface GetModelsParams {
-    year: number;
-    make: string;
-    soldInUSA?: boolean;
-    body?: BodyStyle;
 }
