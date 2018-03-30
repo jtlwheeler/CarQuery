@@ -50,12 +50,16 @@ export class CarQuery {
         return Promise.resolve(makes);
     }
 
-    async getModels(year: number, make: string): Promise<Model[]> {
+    async getModels(year: number, make: string, soldInUSA?: boolean): Promise<Model[]> {
         this.config.params = {
             cmd: 'getMakes',
             year: year,
             make: make
         };
+
+        if (soldInUSA) {
+            Object.assign(this.config.params, { sold_in_us: 1 });
+        }
 
         const response = await axios.request(this.config);
         const models: Model[] = response.data.Models.map((model: any) => {

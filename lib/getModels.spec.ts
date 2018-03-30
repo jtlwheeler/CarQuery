@@ -5,9 +5,9 @@ import { CarQuery } from './car-query';
 import { Model } from './Model';
 
 describe('getModels()', function () {
-    it('should return models', async function () {
-        const axiosStub = sinon.stub(axios, 'request');
-        axiosStub.returns({
+    beforeEach(function () {
+        this.axiosStub = sinon.stub(axios, 'request');
+        this.axiosStub.returns({
             data: {
                 Models: [
                     {
@@ -17,10 +17,17 @@ describe('getModels()', function () {
                     {
                         "model_name": "Excursion",
                         "model_make_id": "ford"
-                    }]
+                    }
+                ]
             }
         });
+    });
 
+    afterEach(function () {
+        this.axiosStub.restore();
+    });
+
+    it('should return models', async function () {
         const carQuery = new CarQuery();
         const models: Model[] = await carQuery.getModels(2000, 'Ford');
 
@@ -31,7 +38,13 @@ describe('getModels()', function () {
 
         expect(models[1].name).toBe('Excursion');
         expect(models[1].makeId).toBe('ford');
+    });
 
-        axiosStub.restore();
+    it('should be called with sold_in_usa flag', async function () {
+        const carQuery = new CarQuery();
+
+        await carQuery.getModels(2000, 'Ford', true);
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { make: "Ford", sold_in_us: 1, year: 2000 } }));
     });
 });
