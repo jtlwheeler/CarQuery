@@ -31,7 +31,7 @@ export class CarQuery {
         };
 
         if (soldInUSA) {
-            Object.assign(this.config.params, { sold_in_us: true });
+            Object.assign(this.config.params, { sold_in_us: 1 });
         }
 
         const response = await axios.request(this.config);

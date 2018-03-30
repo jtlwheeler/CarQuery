@@ -5,9 +5,9 @@ import { CarQuery } from './car-query';
 import Make from './Make';
 
 describe('getMakes()', function () {
-    it('should return array of makes and called with entered year', async function () {
-        const axiosStub = sinon.stub(axios, 'request');
-        axiosStub.returns({
+    beforeEach(function () {
+        this.axiosStub = sinon.stub(axios, 'request');
+        this.axiosStub.returns({
             data: {
                 Makes: [
                     {
@@ -24,11 +24,17 @@ describe('getMakes()', function () {
                     }]
             }
         });
+    });
 
+    afterEach(function () {
+        this.axiosStub.restore();
+    });
+
+    it('should return array of makes and called with entered year', async function () {
         const carQuery = new CarQuery();
         const makes: Make[] = await carQuery.getMakes(2000);
 
-        sinon.assert.calledWith(axiosStub, sinon.match({ params: { year: 2000 } }));
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { year: 2000 } }));
 
         expect(makes.length).toBe(2);
 
@@ -41,7 +47,12 @@ describe('getMakes()', function () {
         expect(makes[1].display).toBe("Acura");
         expect(makes[1].isCommon).toBe(true);
         expect(makes[1].country).toBe("USA");
+    });
 
-        axiosStub.restore();
+    it('should be called with sold_in_us flag when soldInUSA parameter is true', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getMakes(2000, true);
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { year: 2000, sold_in_us: 1 } }));
     });
 });
