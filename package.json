@@ -1,0 +1,22 @@
+{
+  "name": "CarQuery",
+  "version": "1.0.0",
+  "description": "CarQuery API",
+  "main": "index.js",
+  "author": "JT Wheeler",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jasmine": "^2.8.6",
+    "jasmine": "^3.1.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-ts": "^0.2.1",
+    "typescript": "^2.8.1"
+  },
+  "scripts": {
+    "test": "jasmine-ts \"./spec/**/*.spec.ts\""
+  }
+}
