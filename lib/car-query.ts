@@ -1,6 +1,7 @@
 import Years from './Years';
 import axios, { AxiosRequestConfig } from 'axios';
 import Make from './Make';
+import { Model } from './Model';
 
 const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
 
@@ -47,5 +48,25 @@ export class CarQuery {
         });
 
         return Promise.resolve(makes);
+    }
+
+    async getModels(year: number, make: string): Promise<Model[]> {
+        this.config.params = {
+            cmd: 'getMakes',
+            year: year,
+            make: make
+        };
+
+        const response = await axios.request(this.config);
+        const models: Model[] = response.data.Models.map((model: any) => {
+            const newModel: Model = {
+                makeId: model.model_make_id,
+                name: model.model_name
+            }
+
+            return newModel;
+        });
+
+        return Promise.resolve(models);
     }
 }
