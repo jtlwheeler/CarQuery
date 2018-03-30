@@ -14,11 +14,11 @@ export class CarQuery {
             cmd: 'getYears'
         };
 
-        const response = await axios(this.config);
+        const response = await axios.request(this.config);
 
         const years: Years = {
-            minYear: response.data.Years.min_year,
-            maxYear: response.data.Years.max_year,
+            minYear: Number(response.data.Years.min_year),
+            maxYear: Number(response.data.Years.max_year),
         };
 
         return Promise.resolve(years);

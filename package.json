@@ -11,12 +11,15 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jasmine": "^2.8.6",
+    "@types/sinon": "^4.3.0",
     "jasmine": "^3.1.0",
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts": "^0.2.1",
+    "sinon": "^4.5.0",
     "typescript": "^2.8.1"
   },
   "scripts": {
-    "test": "jasmine-ts \"./spec/**/*.spec.ts\""
+    "test": "jasmine-ts \"./lib/**/*.spec.ts\"",
+    "integration-test": "jasmine-ts \"./spec/**/*.spec.ts\""
   }
 }
