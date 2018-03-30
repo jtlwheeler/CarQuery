@@ -2,6 +2,7 @@ import Years from './Years';
 import axios, { AxiosRequestConfig } from 'axios';
 import Make from './Make';
 import { Model } from './Model';
+import { Body } from './Body';
 
 const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
 
@@ -50,15 +51,19 @@ export class CarQuery {
         return Promise.resolve(makes);
     }
 
-    async getModels(year: number, make: string, soldInUSA?: boolean): Promise<Model[]> {
+    async getModels(inputs: GetModelsParams): Promise<Model[]> {
         this.config.params = {
             cmd: 'getMakes',
-            year: year,
-            make: make
+            year: inputs.year,
+            make: inputs.make
         };
 
-        if (soldInUSA) {
+        if (inputs.soldInUSA) {
             Object.assign(this.config.params, { sold_in_us: 1 });
+        }
+
+        if (inputs.body) {
+            Object.assign(this.config.params, { body: inputs.body });
         }
 
         const response = await axios.request(this.config);
@@ -73,4 +78,11 @@ export class CarQuery {
 
         return Promise.resolve(models);
     }
+}
+
+export interface GetModelsParams {
+    year: number;
+    make: string;
+    soldInUSA?: boolean;
+    body?: Body;
 }
