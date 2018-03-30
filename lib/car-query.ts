@@ -24,11 +24,15 @@ export class CarQuery {
         return Promise.resolve(years);
     }
 
-    async getMakes(year: number): Promise<Make[]> {
+    async getMakes(year: number, soldInUSA?: boolean): Promise<Make[]> {
         this.config.params = {
             cmd: 'getMakes',
             year: year
         };
+
+        if (soldInUSA) {
+            Object.assign(this.config.params, {sold_in_us: true});
+        }
         
         const response = await axios(this.config);
         const makes: Make[] = response.data.Makes.map((make: any) => {
