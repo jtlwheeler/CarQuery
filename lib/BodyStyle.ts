@@ -1,4 +1,4 @@
-export enum Body {
+export enum BodyStyle {
     CargoVans = "Cargo Vans",
     CompactCars = "Compact Cars",
     Convertible = "Convertible",

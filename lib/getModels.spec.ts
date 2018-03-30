@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as sinon from 'sinon';
 import { CarQuery } from './car-query';
 import { Model } from './Model';
-import { Body } from './Body';
+import { BodyStyle } from './BodyStyle';
 
 describe('getModels()', function () {
     beforeEach(function () {
@@ -52,7 +52,7 @@ describe('getModels()', function () {
     it('should be called with body', async function () {
         const carQuery = new CarQuery();
 
-        await carQuery.getModels({ year: 2000, make: 'Ford', body: Body.SUV });
+        await carQuery.getModels({ year: 2000, make: 'Ford', body: BodyStyle.SUV });
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { body: "SUV", make: "Ford", year: 2000 } }));
     });

@@ -2,7 +2,7 @@ import Years from './Years';
 import axios, { AxiosRequestConfig } from 'axios';
 import Make from './Make';
 import { Model } from './Model';
-import { Body } from './Body';
+import { BodyStyle } from './BodyStyle';
 
 const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
 
@@ -84,5 +84,5 @@ export interface GetModelsParams {
     year: number;
     make: string;
     soldInUSA?: boolean;
-    body?: Body;
+    body?: BodyStyle;
 }
