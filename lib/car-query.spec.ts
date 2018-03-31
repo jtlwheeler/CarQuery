@@ -518,6 +518,7 @@ describe('getModelDetails', function () {
                 'model_make_id': 'dodge',
                 'model_name': 'Viper SRT10',
                 'model_year': '2009',
+                'model_trim': 'SRT10',
                 'model_body': 'Roadster',
                 'model_engine_position': 'Front',
                 'model_engine_cc': '8285',
@@ -582,6 +583,7 @@ describe('getModelDetails', function () {
         expect(modelDetail.modelId).toBe(11459);
         expect(modelDetail.makeId).toBe('dodge');
         expect(modelDetail.modelName).toBe('Viper SRT10');
+        expect(modelDetail.trim).toBe('SRT10');
         expect(modelDetail.year).toBe(2009);
         expect(modelDetail.body).toBe('Roadster');
         expect(modelDetail.enginePosition).toBe('Front');

@@ -263,6 +263,7 @@ export class CarQuery {
             modelId: Number(detail.model_id),
             makeId: detail.model_make_id,
             modelName: detail.model_name,
+            trim: detail.model_trim,
             year: Number(detail.model_year),
             body: detail.model_body,
             enginePosition: detail.model_engine_position,

@@ -3,6 +3,7 @@ export interface ModelDetail {
     makeId: string;
     modelName: string;
     year: number;
+    trim: string;
     body: string;
     enginePosition: string;
     engineCC: number;

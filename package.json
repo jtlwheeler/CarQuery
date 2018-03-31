@@ -1,13 +1,14 @@
 {
-  "name": "CarQuery",
+  "name": "car-query",
   "version": "1.0.0",
   "description": "CarQuery API",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "author": "JT Wheeler",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jtlwheeler/CarQuery"
+    "url": "git+https://github.com/jtlwheeler/CarQuery.git"
   },
   "dependencies": {
     "axios": "^0.18.0"
@@ -37,5 +38,12 @@
     "karma-test": "karma start karma.conf.js",
     "test": "jasmine-ts \"./lib/**/*.spec.ts\"",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "bugs": {
+    "url": "https://github.com/jtlwheeler/CarQuery/issues"
+  },
+  "homepage": "https://github.com/jtlwheeler/CarQuery#readme",
+  "directories": {
+    "lib": "lib"
   }
 }

@@ -165,6 +165,7 @@ describe('CarQuery API integration tests', function () {
                 expect(modelDetail.modelId).toBe(11459);
                 expect(modelDetail.makeId).toBe('dodge');
                 expect(modelDetail.modelName).toBe('Viper');
+                expect(modelDetail.trim).toBe('SRT-10');
                 expect(modelDetail.year).toBe(2009);
                 expect(modelDetail.body).toBe('Roadster');
                 expect(modelDetail.enginePosition).toBe('Front');
