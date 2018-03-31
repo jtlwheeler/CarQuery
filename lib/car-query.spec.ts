@@ -322,4 +322,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { doors: 4 } }));
     });
+
+    it('should be called with drive', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ drive: "Front" });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { drive: "Front" } }));
+    });
 });

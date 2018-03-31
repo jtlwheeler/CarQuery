@@ -117,6 +117,10 @@ export class CarQuery {
         if (params.doors) {
             Object.assign(this.config.params, { doors: params.doors });
         }
+
+        if (params.drive) {
+            Object.assign(this.config.params, { drive: params.drive });
+        }
     }
 
     mapToTrim(trim: any): Trim {
