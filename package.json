@@ -1,6 +1,6 @@
 {
   "name": "car-query",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CarQuery API",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -36,6 +36,7 @@
     "build-ts": "tsc",
     "integration-test": "jasmine-ts \"./spec/**/*.spec.ts\"",
     "karma-test": "karma start karma.conf.js",
+    "npm-publish": "yarn build && npm publish",
     "test": "jasmine-ts \"./lib/**/*.spec.ts\"",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
