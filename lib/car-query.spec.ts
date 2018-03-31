@@ -469,4 +469,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { seats: 1 } }));
     });
+
+    it('should be called with sold_in_us', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ soldInUSA: true });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { sold_in_us: 1 } }));
+    });
 });

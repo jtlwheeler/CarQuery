@@ -201,6 +201,10 @@ export class CarQuery {
         if (params.seats) {
             Object.assign(this.config.params, { seats: params.seats });
         }
+
+        if (params.soldInUSA) {
+            Object.assign(this.config.params, { sold_in_us: 1 });
+        }
     }
 
     mapToTrim(trim: any): Trim {
