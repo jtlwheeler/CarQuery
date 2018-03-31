@@ -5,6 +5,7 @@ export interface GetTrimsParams {
     doors?: number;
     drive?: string;
     enginePosition?: string;
+    engineType?: string;
     year?: number;
     make?: string;
     model?: string;

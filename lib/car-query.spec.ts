@@ -336,4 +336,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { engine_position: "Front" } }));
     });
+
+    it('should be called with engine_type', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ engineType: "whatever" });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { engine_type: "whatever" } }));
+    });
 });
