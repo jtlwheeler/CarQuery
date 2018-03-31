@@ -392,4 +392,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_top_speed: 1 } }));
     });
+
+    it('should be called with min_torque', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ minTorqueNewtonMetre: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_torque: 1 } }));
+    });
 });

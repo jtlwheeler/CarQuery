@@ -157,6 +157,10 @@ export class CarQuery {
         if (params.minTopSpeedKilometerPerHour) {
             Object.assign(this.config.params, { min_top_speed: params.minTopSpeedKilometerPerHour });
         }
+
+        if (params.minTorqueNewtonMetre) {
+            Object.assign(this.config.params, { min_torque: params.minTorqueNewtonMetre });
+        }
     }
 
     mapToTrim(trim: any): Trim {

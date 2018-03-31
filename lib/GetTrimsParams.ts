@@ -14,6 +14,7 @@ export interface GetTrimsParams {
     minFuelEfficiencyHighwayInLitresPer100Kilometer?: number;
     minHorsepower?: number;
     minTopSpeedKilometerPerHour?: number;
+    minTorqueNewtonMetre?: number;
 
 
 
