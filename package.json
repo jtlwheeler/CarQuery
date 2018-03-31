@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "JT Wheeler",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtlwheeler/CarQuery"
+  },
   "dependencies": {
     "axios": "^0.18.0"
   },
