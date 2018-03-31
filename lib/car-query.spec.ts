@@ -406,4 +406,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_weight: 1 } }));
     });
+
+    it('should be called with min_year', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ minYear: 1900 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_year: 1900 } }));
+    });
 });

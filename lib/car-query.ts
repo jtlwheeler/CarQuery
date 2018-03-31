@@ -165,6 +165,10 @@ export class CarQuery {
         if (params.minWeightInKilogram) {
             Object.assign(this.config.params, { min_weight: params.minWeightInKilogram });
         }
+
+        if (params.minYear) {
+            Object.assign(this.config.params, { min_year: params.minYear });
+        }
     }
 
     mapToTrim(trim: any): Trim {
