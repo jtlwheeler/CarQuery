@@ -161,6 +161,10 @@ export class CarQuery {
         if (params.minTorqueNewtonMetre) {
             Object.assign(this.config.params, { min_torque: params.minTorqueNewtonMetre });
         }
+
+        if (params.minWeightInKilogram) {
+            Object.assign(this.config.params, { min_weight: params.minWeightInKilogram });
+        }
     }
 
     mapToTrim(trim: any): Trim {

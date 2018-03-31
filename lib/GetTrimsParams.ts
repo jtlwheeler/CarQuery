@@ -15,6 +15,7 @@ export interface GetTrimsParams {
     minHorsepower?: number;
     minTopSpeedKilometerPerHour?: number;
     minTorqueNewtonMetre?: number;
+    minWeightInKilogram?: number;
 
 
 

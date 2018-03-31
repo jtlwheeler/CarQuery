@@ -399,4 +399,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_torque: 1 } }));
     });
+
+    it('should be called with min_weight', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ minWeightInKilogram: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_weight: 1 } }));
+    });
 });
