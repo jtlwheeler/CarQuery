@@ -378,4 +378,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_lkm_hwy: 1 } }));
     });
+
+    it('should be called with min_power', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ minHorsepower: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_power: 1 } }));
+    });
 });

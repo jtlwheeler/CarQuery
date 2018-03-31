@@ -149,6 +149,10 @@ export class CarQuery {
         if (params.minFuelEfficiencyHighwayInLitresPer100Kilometer) {
             Object.assign(this.config.params, { min_lkm_hwy: params.minFuelEfficiencyHighwayInLitresPer100Kilometer });
         }
+
+        if (params.minHorsepower) {
+            Object.assign(this.config.params, { min_power: params.minHorsepower });
+        }
     }
 
     mapToTrim(trim: any): Trim {

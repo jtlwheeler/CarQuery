@@ -12,6 +12,7 @@ export interface GetTrimsParams {
     make?: string;
     minCylinders?: string;
     minFuelEfficiencyHighwayInLitresPer100Kilometer?: number;
+    minHorsepower?: number;
 
 
 
