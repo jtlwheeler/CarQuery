@@ -24,10 +24,11 @@ export interface GetTrimsParams {
     maxTorqueNewtonMetre?: number;
     maxWeightInKilograms?: number;
     maxYear?: number;
-
-
-
-
     model?: string;
+    seats?: number;
+
+
+
+
     year?: number;
 }

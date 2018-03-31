@@ -197,6 +197,10 @@ export class CarQuery {
         if (params.maxYear) {
             Object.assign(this.config.params, { max_year: params.maxYear });
         }
+
+        if (params.seats) {
+            Object.assign(this.config.params, { seats: params.seats });
+        }
     }
 
     mapToTrim(trim: any): Trim {

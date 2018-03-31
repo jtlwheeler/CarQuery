@@ -462,4 +462,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_year: 1 } }));
     });
+
+    it('should be called with seats', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ seats: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { seats: 1 } }));
+    });
 });
