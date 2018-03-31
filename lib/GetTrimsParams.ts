@@ -17,10 +17,12 @@ export interface GetTrimsParams {
     minTorqueNewtonMetre?: number;
     minWeightInKilogram?: number;
     minYear?: number;
+    maxCylinders?: number;
+    maxFuelEfficiencyHighwayInLitresPer100Kilometer?: number;
 
 
 
 
-    year?: number;
     model?: string;
+    year?: number;
 }

@@ -413,4 +413,18 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_year: 1900 } }));
     });
+
+    it('should be called with max_cylinders', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ maxCylinders: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_cylinders: 1 } }));
+    });
+
+    it('should be called with max_lkm_hwy', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ maxFuelEfficiencyHighwayInLitresPer100Kilometer: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_lkm_hwy: 1 } }));
+    });
 });

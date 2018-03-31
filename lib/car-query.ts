@@ -169,6 +169,14 @@ export class CarQuery {
         if (params.minYear) {
             Object.assign(this.config.params, { min_year: params.minYear });
         }
+
+        if (params.maxCylinders) {
+            Object.assign(this.config.params, { max_cylinders: params.maxCylinders });
+        }
+
+        if (params.maxFuelEfficiencyHighwayInLitresPer100Kilometer) {
+            Object.assign(this.config.params, { max_lkm_hwy: params.maxFuelEfficiencyHighwayInLitresPer100Kilometer });
+        }
     }
 
     mapToTrim(trim: any): Trim {
