@@ -58,7 +58,9 @@ describe('CarQuery API', function () {
                 })
                 .catch((error) => done.fail(error));
         });
+    });
 
+    describe('getModels()', function () {
         it('should return models for given year and make', async function (done) {
             const year = 2011;
             const make = 'Ford';
