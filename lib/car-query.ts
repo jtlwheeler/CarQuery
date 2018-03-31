@@ -153,6 +153,10 @@ export class CarQuery {
         if (params.minHorsepower) {
             Object.assign(this.config.params, { min_power: params.minHorsepower });
         }
+
+        if (params.minTopSpeedKilometerPerHour) {
+            Object.assign(this.config.params, { min_top_speed: params.minTopSpeedKilometerPerHour });
+        }
     }
 
     mapToTrim(trim: any): Trim {
