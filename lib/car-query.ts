@@ -54,19 +54,19 @@ export class CarQuery {
         return Promise.resolve(makes);
     }
 
-    async getModels(inputs: GetModelsParams): Promise<Model[]> {
+    async getModels(params: GetModelsParams): Promise<Model[]> {
         this.config.params = {
             cmd: 'getModels',
-            year: inputs.year,
-            make: inputs.make
+            year: params.year,
+            make: params.make
         };
 
-        if (inputs.soldInUSA) {
+        if (params.soldInUSA) {
             Object.assign(this.config.params, { sold_in_us: 1 });
         }
 
-        if (inputs.body) {
-            Object.assign(this.config.params, { body: inputs.body });
+        if (params.body) {
+            Object.assign(this.config.params, { body: params.body });
         }
 
         const response = await axios.request(this.config);
@@ -251,10 +251,10 @@ export class CarQuery {
         };
     }
 
-    public async getModelDetail(model: number): Promise<ModelDetail> {
+    public async getModelDetail(modelId: number): Promise<ModelDetail> {
         this.config.params = {
             cmd: 'getModel',
-            model: model
+            model: modelId
         };
 
         const response = await axios.request(this.config);
