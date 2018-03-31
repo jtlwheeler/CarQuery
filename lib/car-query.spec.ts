@@ -294,4 +294,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { year: 2011 } }));
     });
+
+    it('should be called with make', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ make: "Ford" });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { make: "Ford" } }));
+    });
 });
