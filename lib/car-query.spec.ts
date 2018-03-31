@@ -343,4 +343,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { engine_type: "whatever" } }));
     });
+
+    it('should be called with fuel_type', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ fuelType: "whatever" });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { fuel_type: "whatever" } }));
+    });
 });

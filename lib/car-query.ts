@@ -129,6 +129,10 @@ export class CarQuery {
         if (params.engineType) {
             Object.assign(this.config.params, { engine_type: params.engineType });
         }
+
+        if (params.fuelType) {
+            Object.assign(this.config.params, { fuel_type: params.fuelType });
+        }
     }
 
     mapToTrim(trim: any): Trim {
