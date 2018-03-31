@@ -185,6 +185,10 @@ export class CarQuery {
         if (params.maxTopSpeedKilometerPerHour) {
             Object.assign(this.config.params, { max_top_speed: params.maxTopSpeedKilometerPerHour });
         }
+
+        if (params.maxTorqueNewtonMetre) {
+            Object.assign(this.config.params, { max_torque: params.maxTorqueNewtonMetre });
+        }
     }
 
     mapToTrim(trim: any): Trim {

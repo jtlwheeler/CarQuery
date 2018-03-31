@@ -21,6 +21,7 @@ export interface GetTrimsParams {
     maxFuelEfficiencyHighwayInLitresPer100Kilometer?: number;
     maxHorsepower?: number;
     maxTopSpeedKilometerPerHour?: number;
+    maxTorqueNewtonMetre?: number;
 
 
 
