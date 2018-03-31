@@ -2,8 +2,8 @@ import 'jasmine';
 import axios from 'axios';
 import * as sinon from 'sinon';
 import { CarQuery } from './car-query';
-import Years from './Years';
-import Make from './Make';
+import { Years } from './Years';
+import { Make } from './Make';
 import { Model } from './Model';
 import { BodyStyle } from './BodyStyle';
 import { Trim } from './Trim';
@@ -483,7 +483,7 @@ describe('getModelDetails', function () {
     beforeEach(function () {
         this.axiosStub = sinon.stub(axios, 'request');
         this.axiosStub.returns({
-            data: {
+            data: [{
                 "model_id": "11459",
                 "model_make_id": "dodge",
                 "model_name": "Viper SRT10",
@@ -539,7 +539,7 @@ describe('getModelDetails', function () {
                 "make_country": "USA",
                 "ExtColors": [],
                 "IntColors": []
-            }
+            }]
         });
     });
 

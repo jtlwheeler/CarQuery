@@ -1,4 +1,4 @@
-export default interface Years {
+export interface Years {
     minYear: number;
     maxYear: number;
 }

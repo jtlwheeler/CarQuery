@@ -1,4 +1,4 @@
-export default interface Make {
+export interface Make {
     id: string;
     display: string;
     isCommon: boolean;

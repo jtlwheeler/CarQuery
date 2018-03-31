@@ -1,6 +1,6 @@
-import Years from './Years';
+import { Years } from './Years';
 import axios, { AxiosRequestConfig } from 'axios';
-import Make from './Make';
+import { Make } from './Make';
 import { Model } from './Model';
 import { BodyStyle } from './BodyStyle';
 import { GetModelsParams } from './GetModelsParams';
