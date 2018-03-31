@@ -58,5 +58,26 @@ describe('CarQuery API', function () {
                 })
                 .catch((error) => done.fail(error));
         });
+
+        it('should return models for given year and make', async function (done) {
+            const year = 2011;
+            const make = 'Ford';
+            const carQuery = new CarQuery();
+
+            const models = await carQuery.getModels({
+                year: year,
+                make: make
+            });
+
+            expect(models).toBeDefined();
+            expect(models.length).toBeGreaterThanOrEqual(0);
+
+            for (const model of models) {
+                expect(model.makeId.toUpperCase()).toBe(make.toUpperCase());
+                expect(model.name).toBeDefined();
+            }
+
+            done();
+        });
     });
 });

@@ -57,7 +57,7 @@ export class CarQuery {
 
     async getModels(inputs: GetModelsParams): Promise<Model[]> {
         this.config.params = {
-            cmd: 'getMakes',
+            cmd: 'getModels',
             year: inputs.year,
             make: inputs.make
         };
