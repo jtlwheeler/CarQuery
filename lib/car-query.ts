@@ -254,12 +254,12 @@ export class CarQuery {
 
     public async getModelDetail(model: number): Promise<ModelDetail> {
         this.config.params = {
-            cmd: 'getTrims',
+            cmd: 'getModel',
             model: model
         };
 
         const response = await axios.request(this.config);
-        const detail = response.data;
+        const detail = response.data[0];
         const modelDetail: ModelDetail = {
             modelId: Number(detail.model_id),
             makeId: detail.model_make_id,

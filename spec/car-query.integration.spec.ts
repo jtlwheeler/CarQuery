@@ -144,4 +144,72 @@ describe('CarQuery API', function () {
             done();
         });
     });
+
+    describe('getModelDetail()', function () {
+        it('should return model detail', async function (done) {
+            const carQuery = new CarQuery();
+
+            const modelDetail = await carQuery.getModelDetail(11459);
+
+            expect(modelDetail).toBeDefined();
+
+            expect(modelDetail.modelId).toBe(11459);
+            expect(modelDetail.makeId).toBe("dodge");
+            expect(modelDetail.modelName).toBe("Viper");
+            expect(modelDetail.year).toBe(2009);
+            expect(modelDetail.body).toBe("Roadster");
+            expect(modelDetail.enginePosition).toBe("Front");
+            expect(modelDetail.engineCC).toBe(8285);
+            expect(modelDetail.engineCylinders).toBe(10);
+            expect(modelDetail.engineType).toBe("V");
+            expect(modelDetail.engineValvesPerCylinder).toBe(2);
+            expect(modelDetail.engineHoresepower).toBe(506);
+            expect(modelDetail.enginePowerRPM).toBe(5600);
+            expect(modelDetail.engineTorqueNewtonMetre).toBe(711);
+            expect(modelDetail.engineTorqueRPM).toBe(4200);
+            expect(modelDetail.engineBoreMM).toBe(102.4);
+            expect(modelDetail.engineStrokeMM).toBe(100.6);
+            expect(modelDetail.engineCompression).toBe("10.0:1");
+            expect(modelDetail.engineFuel).toBe("Gasoline");
+            expect(modelDetail.topSpeedKilometerPerHour).toBe(314);
+            expect(modelDetail.zeroTo100KilometerPerHour).toBe(3.9);
+            expect(modelDetail.drive).toBe("Rear");
+            expect(modelDetail.transmissionType).toBe("Manual");
+            expect(modelDetail.seats).toBe(2);
+            expect(modelDetail.doors).toBe(2);
+            expect(modelDetail.weightKilograms).toBe(1602);
+            expect(modelDetail.lengthMM).toBe(4470);
+            expect(modelDetail.widthMM).toBe(1950);
+            expect(modelDetail.heightMM).toBe(1220);
+            expect(modelDetail.wheelbaseMM).toBe(2520);
+            expect(modelDetail.litresPer100KilometerHighway).toBe(10.7);
+            expect(modelDetail.litresPer100KilometerMixed).toBe(21.2);
+            expect(modelDetail.litresPer100KilometerCity).toBe(18.1);
+            expect(modelDetail.fuelCapacityLiters).toBe(70);
+            expect(modelDetail.soldInUSA).toBe(true);
+            expect(modelDetail.engineLiters).toBe(8.3);
+            expect(modelDetail.engineCubicInches).toBe(506);
+            expect(modelDetail.engineValves).toBe(20);
+            expect(modelDetail.engineHorsepower).toBe(499);
+            expect(modelDetail.enginePowerKW).toBe(372);
+            expect(modelDetail.engineTorquePoundFoot).toBe(524);
+            expect(modelDetail.engineTorqueKilogram).toBe(73);
+            expect(modelDetail.topSpeedMilesPerHour).toBe(195);
+            expect(modelDetail.weightPounds).toBe(3532);
+            expect(modelDetail.lengthInches).toBe(176.0);
+            expect(modelDetail.widthInches).toBe(76.8);
+            expect(modelDetail.heightInches).toBe(48.0);
+            expect(modelDetail.wheelbaseInches).toBe(99.2);
+            expect(modelDetail.milesPerGallonHighway).toBe(22);
+            expect(modelDetail.milesPerGallonCity).toBe(13);
+            expect(modelDetail.milesPerGallonMixed).toBe(11);
+            expect(modelDetail.fuelCapacityGallons).toBe(18.5);
+            expect(modelDetail.makeDisplay).toBe("Dodge");
+            expect(modelDetail.makeCountry).toBe("USA");
+            expect(modelDetail.ExtColors).toBeDefined();
+            expect(modelDetail.IntColors).toBeDefined();
+
+            done();
+        });
+    });
 });
