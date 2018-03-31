@@ -177,6 +177,10 @@ export class CarQuery {
         if (params.maxFuelEfficiencyHighwayInLitresPer100Kilometer) {
             Object.assign(this.config.params, { max_lkm_hwy: params.maxFuelEfficiencyHighwayInLitresPer100Kilometer });
         }
+
+        if (params.maxHorsepower) {
+            Object.assign(this.config.params, { max_power: params.maxHorsepower });
+        }
     }
 
     mapToTrim(trim: any): Trim {
