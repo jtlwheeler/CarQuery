@@ -287,4 +287,11 @@ describe('getTrims()', function () {
         expect(trim.display).toBe("Ford");
         expect(trim.country).toBe("USA");
     }
+
+    it('should be called with year', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ year: 2011 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { year: 2011 } }));
+    });
 });
