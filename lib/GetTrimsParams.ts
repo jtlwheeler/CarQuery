@@ -7,6 +7,7 @@ export interface GetTrimsParams {
     enginePosition?: string;
     engineType?: string;
     fuelType?: string;
+    fullResults?: boolean;
     year?: number;
     make?: string;
     model?: string;

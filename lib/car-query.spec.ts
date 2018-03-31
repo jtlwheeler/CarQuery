@@ -350,4 +350,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { fuel_type: "whatever" } }));
     });
+
+    it('should be called with full_results', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ fullResults: true });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { full_results: 1 } }));
+    });
 });
