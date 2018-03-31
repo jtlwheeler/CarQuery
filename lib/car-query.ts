@@ -193,6 +193,10 @@ export class CarQuery {
         if (params.maxWeightInKilograms) {
             Object.assign(this.config.params, { max_weight: params.maxWeightInKilograms });
         }
+
+        if (params.maxYear) {
+            Object.assign(this.config.params, { max_year: params.maxYear });
+        }
     }
 
     mapToTrim(trim: any): Trim {

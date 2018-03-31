@@ -23,6 +23,7 @@ export interface GetTrimsParams {
     maxTopSpeedKilometerPerHour?: number;
     maxTorqueNewtonMetre?: number;
     maxWeightInKilograms?: number;
+    maxYear?: number;
 
 
 

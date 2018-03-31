@@ -455,4 +455,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_weight: 1 } }));
     });
+
+    it('should be called with max_year', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ maxYear: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_year: 1 } }));
+    });
 });
