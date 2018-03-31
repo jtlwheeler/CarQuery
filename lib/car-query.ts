@@ -8,7 +8,7 @@ import { GetTrimsParams } from './GetTrimsParams';
 import { Trim } from './Trim';
 import { ModelDetail } from './ModelDetail';
 
-const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
+const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3/';
 
 export class CarQuery {
     private config: AxiosRequestConfig = {
@@ -21,7 +21,6 @@ export class CarQuery {
         };
 
         const response = await axios.request(this.config);
-
         const years: Years = {
             minYear: Number(response.data.Years.min_year),
             maxYear: Number(response.data.Years.max_year),

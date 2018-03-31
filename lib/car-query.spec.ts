@@ -78,7 +78,8 @@ describe('getMakes()', function () {
 
     it('should be called with sold_in_us flag when soldInUSA parameter is true', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getMakes(2000, true);
+        const makes: Make[] = await carQuery.getMakes(2000, true);
+        expect(makes).toBeDefined();
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { year: 2000, sold_in_us: 1 } }));
     });
@@ -124,7 +125,8 @@ describe('getModels()', function () {
     it('should be called with sold_in_usa flag', async function () {
         const carQuery = new CarQuery();
 
-        await carQuery.getModels({ year: 2000, make: 'Ford', soldInUSA: true });
+        const models: Model[] = await carQuery.getModels({ year: 2000, make: 'Ford', soldInUSA: true });
+        expect(models).toBeDefined();
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { make: 'Ford', sold_in_us: 1, year: 2000 } }));
     });
@@ -132,7 +134,8 @@ describe('getModels()', function () {
     it('should be called with body', async function () {
         const carQuery = new CarQuery();
 
-        await carQuery.getModels({ year: 2000, make: 'Ford', body: BodyStyle.SUV });
+        const models: Model[] = await carQuery.getModels({ year: 2000, make: 'Ford', body: BodyStyle.SUV });
+        expect(models).toBeDefined();
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { body: 'SUV', make: 'Ford', year: 2000 } }));
     });
@@ -291,189 +294,216 @@ describe('getTrims()', function () {
 
     it('should be called with year', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ year: 2011 });
+        const trims: Trim[] = await carQuery.getTrims({ year: 2011 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { year: 2011 } }));
     });
 
     it('should be called with make', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ make: 'Ford' });
+        const trims: Trim[] = await carQuery.getTrims({ make: 'Ford' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { make: 'Ford' } }));
     });
 
     it('should be called with model', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ model: 'Escape' });
+        const trims: Trim[] = await carQuery.getTrims({ model: 'Escape' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { model: 'Escape' } }));
     });
 
     it('should be called with body', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ bodyStyle: BodyStyle.SUV });
+        const trims: Trim[] = await carQuery.getTrims({ bodyStyle: BodyStyle.SUV });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { body: BodyStyle.SUV } }));
     });
 
     it('should be called with doors', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ doors: 4 });
+        const trims: Trim[] = await carQuery.getTrims({ doors: 4 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { doors: 4 } }));
     });
 
     it('should be called with drive', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ drive: 'Front' });
+        const trims: Trim[] = await carQuery.getTrims({ drive: 'Front' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { drive: 'Front' } }));
     });
 
     it('should be called with engine_position', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ enginePosition: 'Front' });
+        const trims: Trim[] = await carQuery.getTrims({ enginePosition: 'Front' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { engine_position: 'Front' } }));
     });
 
     it('should be called with engine_type', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ engineType: 'whatever' });
+        const trims: Trim[] = await carQuery.getTrims({ engineType: 'whatever' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { engine_type: 'whatever' } }));
     });
 
     it('should be called with fuel_type', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ fuelType: 'whatever' });
+        const trims: Trim[] = await carQuery.getTrims({ fuelType: 'whatever' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { fuel_type: 'whatever' } }));
     });
 
     it('should be called with full_results', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ fullResults: true });
+        const trims: Trim[] = await carQuery.getTrims({ fullResults: true });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { full_results: 1 } }));
     });
 
     it('should be called with keyword', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ keyword: 'whatever' });
+        const trims: Trim[] = await carQuery.getTrims({ keyword: 'whatever' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { keyword: 'whatever' } }));
     });
 
     it('should be called with min_cylinders', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minCylinders: 'whatever' });
+        const trims: Trim[] = await carQuery.getTrims({ minCylinders: 'whatever' });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_cylinders: 'whatever' } }));
     });
 
     it('should be called with min_lkm_hwy', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minFuelEfficiencyHighwayInLitresPer100Kilometer: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ minFuelEfficiencyHighwayInLitresPer100Kilometer: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_lkm_hwy: 1 } }));
     });
 
     it('should be called with min_power', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minHorsepower: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ minHorsepower: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_power: 1 } }));
     });
 
     it('should be called with min_top_speed', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minTopSpeedKilometerPerHour: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ minTopSpeedKilometerPerHour: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_top_speed: 1 } }));
     });
 
     it('should be called with min_torque', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minTorqueNewtonMetre: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ minTorqueNewtonMetre: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_torque: 1 } }));
     });
 
     it('should be called with min_weight', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minWeightInKilogram: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ minWeightInKilogram: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_weight: 1 } }));
     });
 
     it('should be called with min_year', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ minYear: 1900 });
+        const trims: Trim[] = await carQuery.getTrims({ minYear: 1900 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_year: 1900 } }));
     });
 
     it('should be called with max_cylinders', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxCylinders: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxCylinders: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_cylinders: 1 } }));
     });
 
     it('should be called with max_lkm_hwy', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxFuelEfficiencyHighwayInLitresPer100Kilometer: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxFuelEfficiencyHighwayInLitresPer100Kilometer: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_lkm_hwy: 1 } }));
     });
 
     it('should be called with max_power', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxHorsepower: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxHorsepower: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_power: 1 } }));
     });
 
     it('should be called with max_top_speed', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxTopSpeedKilometerPerHour: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxTopSpeedKilometerPerHour: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_top_speed: 1 } }));
     });
 
     it('should be called with max_torque', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxTorqueNewtonMetre: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxTorqueNewtonMetre: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_torque: 1 } }));
     });
 
     it('should be called with max_weight', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxWeightInKilograms: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxWeightInKilograms: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_weight: 1 } }));
     });
 
     it('should be called with max_year', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ maxYear: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ maxYear: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_year: 1 } }));
     });
 
     it('should be called with seats', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ seats: 1 });
+        const trims: Trim[] = await carQuery.getTrims({ seats: 1 });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { seats: 1 } }));
     });
 
     it('should be called with sold_in_us', async function () {
         const carQuery = new CarQuery();
-        await carQuery.getTrims({ soldInUSA: true });
+        const trims: Trim[] = await carQuery.getTrims({ soldInUSA: true });
+        expect(trims.length).toBe(2);
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { sold_in_us: 1 } }));
     });
