@@ -103,6 +103,10 @@ export class CarQuery {
             Object.assign(this.config.params, { body: params.bodyStyle });
         }
 
+        if (params.doors) {
+            Object.assign(this.config.params, { doors: params.doors });
+        }
+
         const response = await axios.request(this.config);
         const trims: Trim[] = response.data.Trims.map((trim: any) => {
             return this.mapToTrim(trim);
