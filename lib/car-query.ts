@@ -47,7 +47,7 @@ export class CarQuery {
                 display: make.make_display,
                 isCommon: make.make_is_common == '1',
                 country: make.make_country
-            }
+            };
 
             return newMake;
         });
@@ -75,7 +75,7 @@ export class CarQuery {
             const newModel: Model = {
                 makeId: model.model_make_id,
                 name: model.model_name
-            }
+            };
 
             return newModel;
         });
@@ -249,7 +249,7 @@ export class CarQuery {
             make: trim.model_make_display,
             display: trim.make_display,
             country: trim.make_country
-        }
+        };
     }
 
     public async getModelDetail(model: number): Promise<ModelDetail> {
@@ -294,7 +294,7 @@ export class CarQuery {
             litresPer100KilometerMixed: Number(detail.model_lkm_mixed),
             litresPer100KilometerCity: Number(detail.model_lkm_city),
             fuelCapacityLiters: Number(detail.model_fuel_cap_l),
-            soldInUSA: detail.model_sold_in_us === "1",
+            soldInUSA: detail.model_sold_in_us === '1',
             engineLiters: Number(detail.model_engine_l),
             engineCubicInches: Number(detail.model_engine_ci),
             engineValves: Number(detail.model_engine_valves),

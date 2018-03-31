@@ -1,7 +1,7 @@
-import { BodyStyle } from "./BodyStyle";
+import { BodyStyle } from './BodyStyle';
 
 export interface GetTrimsParams {
-    bodyStyle?: BodyStyle,
+    bodyStyle?: BodyStyle;
     doors?: number;
     drive?: string;
     enginePosition?: string;

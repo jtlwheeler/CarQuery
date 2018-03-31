@@ -1,4 +1,4 @@
-import { BodyStyle } from "./BodyStyle";
+import { BodyStyle } from './BodyStyle';
 
 export interface GetModelsParams {
     year: number;
