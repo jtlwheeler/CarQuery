@@ -6,6 +6,7 @@ import { BodyStyle } from './BodyStyle';
 import { GetModelsParams } from './GetModelsParams';
 import { GetTrimsParams } from './GetTrimsParams';
 import { Trim } from './Trim';
+import { ModelDetail } from './ModelDetail';
 
 const CARQUERY_API_URL = 'https://www.carqueryapi.com/api/0.3';
 
@@ -88,7 +89,7 @@ export class CarQuery {
         };
 
         this.buildGetTrimsQueryString(params);
-        
+
         const response = await axios.request(this.config);
         const trims: Trim[] = response.data.Trims.map((trim: any) => {
             return this.mapToTrim(trim);
@@ -249,5 +250,74 @@ export class CarQuery {
             display: trim.make_display,
             country: trim.make_country
         }
+    }
+
+    public async getModelDetail(model: number): Promise<ModelDetail> {
+        this.config.params = {
+            cmd: 'getTrims',
+            model: model
+        };
+
+        const response = await axios.request(this.config);
+        const detail = response.data;
+        const modelDetail: ModelDetail = {
+            modelId: Number(detail.model_id),
+            makeId: detail.model_make_id,
+            modelName: detail.model_name,
+            year: Number(detail.model_year),
+            body: detail.model_body,
+            enginePosition: detail.model_engine_position,
+            engineCC: Number(detail.model_engine_cc),
+            engineCylinders: Number(detail.model_engine_cyl),
+            engineType: detail.model_engine_type,
+            engineValvesPerCylinder: Number(detail.model_engine_valves_per_cyl),
+            engineHoresepower: Number(detail.model_engine_power_ps),
+            enginePowerRPM: Number(detail.model_engine_power_rpm),
+            engineTorqueNewtonMetre: Number(detail.model_engine_torque_nm),
+            engineTorqueRPM: Number(detail.model_engine_torque_rpm),
+            engineBoreMM: Number(detail.model_engine_bore_mm),
+            engineStrokeMM: Number(detail.model_engine_stroke_mm),
+            engineCompression: detail.model_engine_compression,
+            engineFuel: detail.model_engine_fuel,
+            topSpeedKilometerPerHour: Number(detail.model_top_speed_kph),
+            zeroTo100KilometerPerHour: Number(detail.model_0_to_100_kph),
+            drive: detail.model_drive,
+            transmissionType: detail.model_transmission_type,
+            seats: Number(detail.model_seats),
+            doors: Number(detail.model_doors),
+            weightKilograms: Number(detail.model_weight_kg),
+            lengthMM: Number(detail.model_length_mm),
+            widthMM: Number(detail.model_width_mm),
+            heightMM: Number(detail.model_height_mm),
+            wheelbaseMM: Number(detail.model_wheelbase_mm),
+            litresPer100KilometerHighway: Number(detail.model_lkm_hwy),
+            litresPer100KilometerMixed: Number(detail.model_lkm_mixed),
+            litresPer100KilometerCity: Number(detail.model_lkm_city),
+            fuelCapacityLiters: Number(detail.model_fuel_cap_l),
+            soldInUSA: detail.model_sold_in_us === "1",
+            engineLiters: Number(detail.model_engine_l),
+            engineCubicInches: Number(detail.model_engine_ci),
+            engineValves: Number(detail.model_engine_valves),
+            engineHorsepower: Number(detail.model_engine_power_hp),
+            enginePowerKW: Number(detail.model_engine_power_kw),
+            engineTorquePoundFoot: Number(detail.model_engine_torque_lbft),
+            engineTorqueKilogram: Number(detail.model_engine_torque_kgm),
+            topSpeedMilesPerHour: Number(detail.model_top_speed_mph),
+            weightPounds: Number(detail.model_weight_lbs),
+            lengthInches: Number(detail.model_length_in),
+            widthInches: Number(detail.model_width_in),
+            heightInches: Number(detail.model_height_in),
+            wheelbaseInches: Number(detail.model_wheelbase_in),
+            milesPerGallonHighway: Number(detail.model_mpg_hwy),
+            milesPerGallonCity: Number(detail.model_mpg_city),
+            milesPerGallonMixed: Number(detail.model_mpg_mixed),
+            fuelCapacityGallons: Number(detail.model_fuel_cap_g),
+            makeDisplay: detail.make_display,
+            makeCountry: detail.make_country,
+            ExtColors: detail.ExtColors,
+            IntColors: detail.ExtColors,
+        };
+
+        return Promise.resolve(modelDetail);
     }
 }

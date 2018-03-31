@@ -7,6 +7,7 @@ import Make from './Make';
 import { Model } from './Model';
 import { BodyStyle } from './BodyStyle';
 import { Trim } from './Trim';
+import { ModelDetail } from './ModelDetail';
 
 describe('getYears()', function () {
     it('should return min and max year', async function () {
@@ -475,5 +476,133 @@ describe('getTrims()', function () {
         await carQuery.getTrims({ soldInUSA: true });
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { sold_in_us: 1 } }));
+    });
+});
+
+describe('getModelDetails', function () {
+    beforeEach(function () {
+        this.axiosStub = sinon.stub(axios, 'request');
+        this.axiosStub.returns({
+            data: {
+                "model_id": "11459",
+                "model_make_id": "dodge",
+                "model_name": "Viper SRT10",
+                "model_year": "2009",
+                "model_body": "Roadster",
+                "model_engine_position": "Front",
+                "model_engine_cc": "8285",
+                "model_engine_cyl": "10",
+                "model_engine_type": "V",
+                "model_engine_valves_per_cyl": "2",
+                "model_engine_power_ps": "506",
+                "model_engine_power_rpm": "5600",
+                "model_engine_torque_nm": "711",
+                "model_engine_torque_rpm": "4200",
+                "model_engine_bore_mm": "102.4",
+                "model_engine_stroke_mm": "100.6",
+                "model_engine_compression": "10.0:1",
+                "model_engine_fuel": "Gasoline - unleaded 95",
+                "model_top_speed_kph": "314",
+                "model_0_to_100_kph": "3.9",
+                "model_drive": "Rear",
+                "model_transmission_type": "Manual",
+                "model_seats": "2",
+                "model_doors": "2",
+                "model_weight_kg": "1602",
+                "model_length_mm": "4470",
+                "model_width_mm": "1950",
+                "model_height_mm": "1220",
+                "model_wheelbase_mm": "2520",
+                "model_lkm_hwy": "11",
+                "model_lkm_mixed": "21",
+                "model_lkm_city": "18",
+                "model_fuel_cap_l": "70",
+                "model_sold_in_us": "1",
+                "model_engine_l": "8.3",
+                "model_engine_ci": "506",
+                "model_engine_valves": "20",
+                "model_engine_power_hp": "499",
+                "model_engine_power_kw": "372",
+                "model_engine_torque_lbft": "524",
+                "model_engine_torque_kgm": "73",
+                "model_top_speed_mph": "195",
+                "model_weight_lbs": "3532",
+                "model_length_in": "176.0",
+                "model_width_in": "76.8",
+                "model_height_in": "48.0",
+                "model_wheelbase_in": "99.2",
+                "model_mpg_hwy": "21",
+                "model_mpg_city": "13",
+                "model_mpg_mixed": "11",
+                "model_fuel_cap_g": "18.5",
+                "make_display": "Dodge",
+                "make_country": "USA",
+                "ExtColors": [],
+                "IntColors": []
+            }
+        });
+    });
+
+    it('should return details for model', async function () {
+        const carQuery = new CarQuery();
+        const modelDetail: ModelDetail = await carQuery.getModelDetail(11459);
+
+        expect(modelDetail).toBeDefined();
+
+        expect(modelDetail.modelId).toBe(11459);
+        expect(modelDetail.makeId).toBe("dodge");
+        expect(modelDetail.modelName).toBe("Viper SRT10");
+        expect(modelDetail.year).toBe(2009);
+        expect(modelDetail.body).toBe("Roadster");
+        expect(modelDetail.enginePosition).toBe("Front");
+        expect(modelDetail.engineCC).toBe(8285);
+        expect(modelDetail.engineCylinders).toBe(10);
+        expect(modelDetail.engineType).toBe("V");
+        expect(modelDetail.engineValvesPerCylinder).toBe(2);
+        expect(modelDetail.engineHoresepower).toBe(506);
+        expect(modelDetail.enginePowerRPM).toBe(5600);
+        expect(modelDetail.engineTorqueNewtonMetre).toBe(711);
+        expect(modelDetail.engineTorqueRPM).toBe(4200);
+        expect(modelDetail.engineBoreMM).toBe(102.4);
+        expect(modelDetail.engineStrokeMM).toBe(100.6);
+        expect(modelDetail.engineCompression).toBe("10.0:1");
+        expect(modelDetail.engineFuel).toBe("Gasoline - unleaded 95");
+        expect(modelDetail.topSpeedKilometerPerHour).toBe(314);
+        expect(modelDetail.zeroTo100KilometerPerHour).toBe(3.9);
+        expect(modelDetail.drive).toBe("Rear");
+        expect(modelDetail.transmissionType).toBe("Manual");
+        expect(modelDetail.seats).toBe(2);
+        expect(modelDetail.doors).toBe(2);
+        expect(modelDetail.weightKilograms).toBe(1602);
+        expect(modelDetail.lengthMM).toBe(4470);
+        expect(modelDetail.widthMM).toBe(1950);
+        expect(modelDetail.heightMM).toBe(1220);
+        expect(modelDetail.wheelbaseMM).toBe(2520);
+        expect(modelDetail.litresPer100KilometerHighway).toBe(11);
+        expect(modelDetail.litresPer100KilometerMixed).toBe(21);
+        expect(modelDetail.litresPer100KilometerCity).toBe(18);
+        expect(modelDetail.fuelCapacityLiters).toBe(70);
+        expect(modelDetail.soldInUSA).toBe(true);
+        expect(modelDetail.engineLiters).toBe(8.3);
+        expect(modelDetail.engineCubicInches).toBe(506);
+        expect(modelDetail.engineValves).toBe(20);
+        expect(modelDetail.engineHorsepower).toBe(499);
+        expect(modelDetail.enginePowerKW).toBe(372);
+        expect(modelDetail.engineTorquePoundFoot).toBe(524);
+        expect(modelDetail.engineTorqueKilogram).toBe(73);
+        expect(modelDetail.topSpeedMilesPerHour).toBe(195);
+        expect(modelDetail.weightPounds).toBe(3532);
+        expect(modelDetail.lengthInches).toBe(176.0);
+        expect(modelDetail.widthInches).toBe(76.8);
+        expect(modelDetail.heightInches).toBe(48.0);
+        expect(modelDetail.wheelbaseInches).toBe(99.2);
+        expect(modelDetail.milesPerGallonHighway).toBe(21);
+        expect(modelDetail.milesPerGallonCity).toBe(13);
+        expect(modelDetail.milesPerGallonMixed).toBe(11);
+        expect(modelDetail.fuelCapacityGallons).toBe(18.5);
+        expect(modelDetail.makeDisplay).toBe("Dodge");
+        expect(modelDetail.makeCountry).toBe("USA");
+        expect(modelDetail.ExtColors).toBeDefined();
+        expect(modelDetail.IntColors).toBeDefined();
     });
 });

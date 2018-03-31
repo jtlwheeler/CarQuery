@@ -27,9 +27,5 @@ export interface GetTrimsParams {
     model?: string;
     seats?: number;
     soldInUSA?: boolean;
-
-
-
-
     year?: number;
 }
