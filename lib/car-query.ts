@@ -87,6 +87,17 @@ export class CarQuery {
             cmd: 'getTrims'
         };
 
+        this.buildGetTrimsQueryString(params);
+        
+        const response = await axios.request(this.config);
+        const trims: Trim[] = response.data.Trims.map((trim: any) => {
+            return this.mapToTrim(trim);
+        });
+
+        return Promise.resolve(trims);
+    }
+
+    private buildGetTrimsQueryString(params: GetTrimsParams) {
         if (params.year) {
             Object.assign(this.config.params, { year: params.year });
         }
@@ -106,13 +117,6 @@ export class CarQuery {
         if (params.doors) {
             Object.assign(this.config.params, { doors: params.doors });
         }
-
-        const response = await axios.request(this.config);
-        const trims: Trim[] = response.data.Trims.map((trim: any) => {
-            return this.mapToTrim(trim);
-        });
-
-        return Promise.resolve(trims);
     }
 
     mapToTrim(trim: any): Trim {
