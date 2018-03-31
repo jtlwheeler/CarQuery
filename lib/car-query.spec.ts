@@ -357,4 +357,18 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { full_results: 1 } }));
     });
+
+    it('should be called with keyword', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ keyword: "whatever" });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { keyword: "whatever" } }));
+    });
+
+    it('should be called with min_cylinders', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ minCylinders: "whatever" });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_cylinders: "whatever" } }));
+    });
 });

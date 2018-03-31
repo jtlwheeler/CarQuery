@@ -137,6 +137,14 @@ export class CarQuery {
         if (params.fullResults) {
             Object.assign(this.config.params, { full_results: 1 });
         }
+
+        if (params.keyword) {
+            Object.assign(this.config.params, { keyword: params.keyword });
+        }
+
+        if (params.minCylinders) {
+            Object.assign(this.config.params, { min_cylinders: params.minCylinders });
+        }
     }
 
     mapToTrim(trim: any): Trim {
