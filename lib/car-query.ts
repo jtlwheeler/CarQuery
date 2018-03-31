@@ -208,7 +208,7 @@ export class CarQuery {
         }
     }
 
-    mapToTrim(trim: any): Trim {
+    private mapToTrim(trim: any): Trim {
         return {
             modelId: trim.model_id,
             makeId: trim.model_make_id,

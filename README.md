@@ -12,3 +12,24 @@ npm install car-query
 ```javascript
 const carQuery = new CarQuery();
 ```
+
+## API
+```javascript
+carQuery.getYears();
+```
+
+```javascript
+carQuery.getMakes();
+```
+
+```javascript
+carQuery.getModels();
+```
+
+```javascript
+carQuery.getTrims();
+```
+
+```javascript
+carQuery.getModelDetail();
+```
