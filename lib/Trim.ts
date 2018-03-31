@@ -1,0 +1,42 @@
+
+export interface Trim {
+    modelId: string;
+    makeId: string;
+    name: string;
+    trim: string;
+    year: number;
+    body: string;
+    enginePosition: string;
+    engineCC: number;
+    engineCyclinders: number;
+    engineType: string;
+    engineValvesPerCylinder: number;
+    engineHorsepower: number;
+    enginePowerRPM?: number;
+    engineTorqueNewtonMetre: number;
+    engineTorqueRPM?: number;
+    engineBoreMM?: number;
+    engineStrokeMM?: number;
+    engineCompression: number;
+    engineFuel: string;
+    topSpeedKilometerPerHour?: number;
+    zeroTo100KilometerPerHour?: number;
+    drive: string;
+    transmissionType: string;
+    seats?: number;
+    doors: number;
+    weightKiloGrams: number;
+    lengthMM?: number;
+    widthMM?: number;
+    heightMM?: number;
+    wheelbaseMM?: number;
+    litresPer100KilometerHighway: number;
+    litresPer100KilometerMixed: number;
+    litresPer100KilometerCity: number;
+    fuelCapacityLiters: number;
+    soldInUSA: boolean;
+    co2: number;
+    make: string;
+    display: string;
+    country: string;
+}
