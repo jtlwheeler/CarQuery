@@ -448,4 +448,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_torque: 1 } }));
     });
+
+    it('should be called with max_weight', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ maxWeightInKilograms: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_weight: 1 } }));
+    });
 });

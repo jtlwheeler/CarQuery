@@ -189,6 +189,10 @@ export class CarQuery {
         if (params.maxTorqueNewtonMetre) {
             Object.assign(this.config.params, { max_torque: params.maxTorqueNewtonMetre });
         }
+
+        if (params.maxWeightInKilograms) {
+            Object.assign(this.config.params, { max_weight: params.maxWeightInKilograms });
+        }
     }
 
     mapToTrim(trim: any): Trim {
