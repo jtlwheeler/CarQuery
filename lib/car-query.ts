@@ -82,13 +82,26 @@ export class CarQuery {
         return Promise.resolve(models);
     }
 
-    async getTrims(inputs: GetTrimsParams): Promise<Trim[]> {
+    async getTrims(params: GetTrimsParams): Promise<Trim[]> {
         this.config.params = {
-            cmd: 'getTrims',
-            year: inputs.year,
-            make: inputs.make,
-            model: inputs.model
+            cmd: 'getTrims'
         };
+
+        if (params.year) {
+            Object.assign(this.config.params, { year: params.year });
+        }
+
+        if (params.make) {
+            Object.assign(this.config.params, { make: params.make });
+        }
+
+        if (params.model) {
+            Object.assign(this.config.params, { model: params.model });
+        }
+
+        if (params.bodyStyle) {
+            Object.assign(this.config.params, { body: params.bodyStyle });
+        }
 
         const response = await axios.request(this.config);
         const trims: Trim[] = response.data.Trims.map((trim: any) => {
