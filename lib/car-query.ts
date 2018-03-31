@@ -121,6 +121,10 @@ export class CarQuery {
         if (params.drive) {
             Object.assign(this.config.params, { drive: params.drive });
         }
+
+        if (params.enginePosition) {
+            Object.assign(this.config.params, { engine_position: params.enginePosition });
+        }
     }
 
     mapToTrim(trim: any): Trim {
