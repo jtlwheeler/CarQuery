@@ -181,6 +181,10 @@ export class CarQuery {
         if (params.maxHorsepower) {
             Object.assign(this.config.params, { max_power: params.maxHorsepower });
         }
+
+        if (params.maxTopSpeedKilometerPerHour) {
+            Object.assign(this.config.params, { max_top_speed: params.maxTopSpeedKilometerPerHour });
+        }
     }
 
     mapToTrim(trim: any): Trim {

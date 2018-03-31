@@ -434,4 +434,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_power: 1 } }));
     });
+
+    it('should be called with max_top_speed', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ maxTopSpeedKilometerPerHour: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { max_top_speed: 1 } }));
+    });
 });
