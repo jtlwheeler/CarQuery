@@ -23,9 +23,16 @@ describe('CarQuery API', function () {
             const carQuery = new CarQuery();
 
             carQuery.getMakes(2011)
-                .then((make: Make[]) => {
-                    expect(make).toBeDefined();
-                    expect(make.length).toBeGreaterThanOrEqual(0);
+                .then((makes: Make[]) => {
+                    expect(makes).toBeDefined();
+                    expect(makes.length).toBeGreaterThanOrEqual(0);
+
+                    for (const make of makes) {
+                        expect(make.id).toBeDefined();
+                        expect(make.display).toBeDefined();
+                        expect(make.country).toBeDefined();
+                        expect(make.isCommon).toBeDefined();
+                    }
 
                     done();
                 })
@@ -36,9 +43,16 @@ describe('CarQuery API', function () {
             const carQuery = new CarQuery();
 
             carQuery.getMakes(2011, true)
-                .then((make: Make[]) => {
-                    expect(make).toBeDefined();
-                    expect(make.length).toBeGreaterThanOrEqual(0);
+                .then((makes: Make[]) => {
+                    expect(makes).toBeDefined();
+                    expect(makes.length).toBeGreaterThanOrEqual(0);
+
+                    for (const make of makes) {
+                        expect(make.id).toBeDefined();
+                        expect(make.display).toBeDefined();
+                        expect(make.country).toBeDefined();
+                        expect(make.isCommon).toBeDefined();
+                    }
 
                     done();
                 })
