@@ -371,4 +371,11 @@ describe('getTrims()', function () {
 
         sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_cylinders: "whatever" } }));
     });
+
+    it('should be called with min_lkm_hwy', async function () {
+        const carQuery = new CarQuery();
+        await carQuery.getTrims({ minFuelEfficiencyHighwayInLitresPer100Kilometer: 1 });
+
+        sinon.assert.calledWith(this.axiosStub, sinon.match({ params: { min_lkm_hwy: 1 } }));
+    });
 });

@@ -145,6 +145,10 @@ export class CarQuery {
         if (params.minCylinders) {
             Object.assign(this.config.params, { min_cylinders: params.minCylinders });
         }
+
+        if (params.minFuelEfficiencyHighwayInLitresPer100Kilometer) {
+            Object.assign(this.config.params, { min_lkm_hwy: params.minFuelEfficiencyHighwayInLitresPer100Kilometer });
+        }
     }
 
     mapToTrim(trim: any): Trim {
