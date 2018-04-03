@@ -44,10 +44,10 @@ carQuery.getModels(searchCriteria)
     });
 ```
 
-Retrive detailed information on the specified model.
+Retrive detailed information on the specified model by ID number.
 ```javascript
 carQuery.getModelDetail(44859)
-    .then((years) => {
+    .then(years => {
         // Process data
     });
 ```
@@ -102,3 +102,6 @@ getTrims(params);
 ```javascript
 getModelDetail(modelId);
 ```
+
+## Known Issues
+The CarQuery API does not contain the Access-Control-Allow-Origin header in its responses, so this package cannot be used within a browser.
