@@ -37,6 +37,7 @@
     "integration-test": "jasmine-ts \"./spec/**/*.spec.ts\"",
     "karma-test": "karma start karma.conf.js",
     "npm-publish": "yarn build && npm publish",
+    "prepublish": "yarn build",
     "test": "jasmine-ts \"./lib/**/*.spec.ts\"",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
