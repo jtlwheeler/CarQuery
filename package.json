@@ -14,28 +14,19 @@
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/jasmine": "^2.8.6",
-    "@types/karma": "^1.7.3",
+    "@types/jasmine": "^2.8.11",
     "@types/sinon": "^4.3.0",
-    "jasmine": "^3.1.0",
+    "jasmine": "^3.3.0",
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts": "^0.2.1",
-    "karma": "^2.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.1",
-    "karma-jasmine-html-reporter": "^1.0.0",
-    "karma-typescript": "^3.0.12",
-    "karma-typescript-es6-transform": "^1.0.4",
-    "sinon": "^4.5.0",
-    "tslint": "^5.9.1",
-    "typescript": "^2.8.1"
+    "sinon": "^7.1.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6"
   },
   "scripts": {
     "build": "yarn build-ts && yarn tslint",
     "build-ts": "tsc",
     "integration-test": "jasmine-ts \"./spec/**/*.spec.ts\"",
-    "karma-test": "karma start karma.conf.js",
     "prepublishOnly": "yarn build",
     "test": "jasmine-ts \"./lib/**/*.spec.ts\"",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
