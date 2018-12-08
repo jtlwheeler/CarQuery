@@ -40,14 +40,12 @@ export class CarQuery {
 
         const response = await axios.request(this.config);
         const makes: Make[] = response.data.Makes.map((make: any) => {
-            const newMake: Make = {
+            return {
                 id: make.make_id,
                 display: make.make_display,
                 isCommon: make.make_is_common == '1',
                 country: make.make_country
             };
-
-            return newMake;
         });
 
         return Promise.resolve(makes);
@@ -70,12 +68,10 @@ export class CarQuery {
 
         const response = await axios.request(this.config);
         const models: Model[] = response.data.Models.map((model: any) => {
-            const newModel: Model = {
+            return {
                 makeId: model.model_make_id,
                 name: model.model_name
             };
-
-            return newModel;
         });
 
         return Promise.resolve(models);
