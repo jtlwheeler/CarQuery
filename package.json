@@ -21,7 +21,7 @@
     "jasmine-ts": "^0.2.1",
     "sinon": "^7.1.1",
     "tslint": "^5.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.2"
   },
   "scripts": {
     "build": "yarn build-ts && yarn tslint",
