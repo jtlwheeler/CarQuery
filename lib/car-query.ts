@@ -2,7 +2,6 @@ import { Years } from './Years';
 import axios, { AxiosRequestConfig } from 'axios';
 import { Make } from './Make';
 import { Model } from './Model';
-import { BodyStyle } from './BodyStyle';
 import { GetModelsParams } from './GetModelsParams';
 import { GetTrimsParams } from './GetTrimsParams';
 import { Trim } from './Trim';
@@ -36,7 +35,7 @@ export class CarQuery {
         };
 
         if (soldInUSA) {
-            Object.assign(this.config.params, { sold_in_us: 1 });
+            Object.assign(this.config.params, {sold_in_us: 1});
         }
 
         const response = await axios.request(this.config);
@@ -62,11 +61,11 @@ export class CarQuery {
         };
 
         if (params.soldInUSA) {
-            Object.assign(this.config.params, { sold_in_us: 1 });
+            Object.assign(this.config.params, {sold_in_us: 1});
         }
 
         if (params.body) {
-            Object.assign(this.config.params, { body: params.body });
+            Object.assign(this.config.params, {body: params.body});
         }
 
         const response = await axios.request(this.config);
@@ -99,111 +98,111 @@ export class CarQuery {
 
     private buildGetTrimsQueryString(params: GetTrimsParams) {
         if (params.year) {
-            Object.assign(this.config.params, { year: params.year });
+            Object.assign(this.config.params, {year: params.year});
         }
 
         if (params.make) {
-            Object.assign(this.config.params, { make: params.make });
+            Object.assign(this.config.params, {make: params.make});
         }
 
         if (params.model) {
-            Object.assign(this.config.params, { model: params.model });
+            Object.assign(this.config.params, {model: params.model});
         }
 
         if (params.bodyStyle) {
-            Object.assign(this.config.params, { body: params.bodyStyle });
+            Object.assign(this.config.params, {body: params.bodyStyle});
         }
 
         if (params.doors) {
-            Object.assign(this.config.params, { doors: params.doors });
+            Object.assign(this.config.params, {doors: params.doors});
         }
 
         if (params.drive) {
-            Object.assign(this.config.params, { drive: params.drive });
+            Object.assign(this.config.params, {drive: params.drive});
         }
 
         if (params.enginePosition) {
-            Object.assign(this.config.params, { engine_position: params.enginePosition });
+            Object.assign(this.config.params, {engine_position: params.enginePosition});
         }
 
         if (params.engineType) {
-            Object.assign(this.config.params, { engine_type: params.engineType });
+            Object.assign(this.config.params, {engine_type: params.engineType});
         }
 
         if (params.fuelType) {
-            Object.assign(this.config.params, { fuel_type: params.fuelType });
+            Object.assign(this.config.params, {fuel_type: params.fuelType});
         }
 
         if (params.fullResults) {
-            Object.assign(this.config.params, { full_results: 1 });
+            Object.assign(this.config.params, {full_results: 1});
         }
 
         if (params.keyword) {
-            Object.assign(this.config.params, { keyword: params.keyword });
+            Object.assign(this.config.params, {keyword: params.keyword});
         }
 
         if (params.minCylinders) {
-            Object.assign(this.config.params, { min_cylinders: params.minCylinders });
+            Object.assign(this.config.params, {min_cylinders: params.minCylinders});
         }
 
         if (params.minFuelEfficiencyHighwayInLitresPer100Kilometer) {
-            Object.assign(this.config.params, { min_lkm_hwy: params.minFuelEfficiencyHighwayInLitresPer100Kilometer });
+            Object.assign(this.config.params, {min_lkm_hwy: params.minFuelEfficiencyHighwayInLitresPer100Kilometer});
         }
 
         if (params.minHorsepower) {
-            Object.assign(this.config.params, { min_power: params.minHorsepower });
+            Object.assign(this.config.params, {min_power: params.minHorsepower});
         }
 
         if (params.minTopSpeedKilometerPerHour) {
-            Object.assign(this.config.params, { min_top_speed: params.minTopSpeedKilometerPerHour });
+            Object.assign(this.config.params, {min_top_speed: params.minTopSpeedKilometerPerHour});
         }
 
         if (params.minTorqueNewtonMetre) {
-            Object.assign(this.config.params, { min_torque: params.minTorqueNewtonMetre });
+            Object.assign(this.config.params, {min_torque: params.minTorqueNewtonMetre});
         }
 
         if (params.minWeightInKilogram) {
-            Object.assign(this.config.params, { min_weight: params.minWeightInKilogram });
+            Object.assign(this.config.params, {min_weight: params.minWeightInKilogram});
         }
 
         if (params.minYear) {
-            Object.assign(this.config.params, { min_year: params.minYear });
+            Object.assign(this.config.params, {min_year: params.minYear});
         }
 
         if (params.maxCylinders) {
-            Object.assign(this.config.params, { max_cylinders: params.maxCylinders });
+            Object.assign(this.config.params, {max_cylinders: params.maxCylinders});
         }
 
         if (params.maxFuelEfficiencyHighwayInLitresPer100Kilometer) {
-            Object.assign(this.config.params, { max_lkm_hwy: params.maxFuelEfficiencyHighwayInLitresPer100Kilometer });
+            Object.assign(this.config.params, {max_lkm_hwy: params.maxFuelEfficiencyHighwayInLitresPer100Kilometer});
         }
 
         if (params.maxHorsepower) {
-            Object.assign(this.config.params, { max_power: params.maxHorsepower });
+            Object.assign(this.config.params, {max_power: params.maxHorsepower});
         }
 
         if (params.maxTopSpeedKilometerPerHour) {
-            Object.assign(this.config.params, { max_top_speed: params.maxTopSpeedKilometerPerHour });
+            Object.assign(this.config.params, {max_top_speed: params.maxTopSpeedKilometerPerHour});
         }
 
         if (params.maxTorqueNewtonMetre) {
-            Object.assign(this.config.params, { max_torque: params.maxTorqueNewtonMetre });
+            Object.assign(this.config.params, {max_torque: params.maxTorqueNewtonMetre});
         }
 
         if (params.maxWeightInKilograms) {
-            Object.assign(this.config.params, { max_weight: params.maxWeightInKilograms });
+            Object.assign(this.config.params, {max_weight: params.maxWeightInKilograms});
         }
 
         if (params.maxYear) {
-            Object.assign(this.config.params, { max_year: params.maxYear });
+            Object.assign(this.config.params, {max_year: params.maxYear});
         }
 
         if (params.seats) {
-            Object.assign(this.config.params, { seats: params.seats });
+            Object.assign(this.config.params, {seats: params.seats});
         }
 
         if (params.soldInUSA) {
-            Object.assign(this.config.params, { sold_in_us: 1 });
+            Object.assign(this.config.params, {sold_in_us: 1});
         }
     }
 
@@ -217,7 +216,7 @@ export class CarQuery {
             body: trim.model_body,
             enginePosition: trim.model_engine_position,
             engineCC: Number(trim.model_engine_cc),
-            engineCyclinders: Number(trim.model_engine_cyl),
+            engineCylinders: Number(trim.model_engine_cyl),
             engineType: trim.model_engine_type,
             engineValvesPerCylinder: Number(trim.model_engine_valves_per_cyl),
             engineHorsepower: Number(trim.model_engine_power_ps),

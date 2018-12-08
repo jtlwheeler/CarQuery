@@ -1,4 +1,3 @@
-
 export interface Trim {
     modelId: string;
     makeId: string;
@@ -8,7 +7,7 @@ export interface Trim {
     body: string;
     enginePosition: string;
     engineCC: number;
-    engineCyclinders: number;
+    engineCylinders: number;
     engineType: string;
     engineValvesPerCylinder: number;
     engineHorsepower: number;

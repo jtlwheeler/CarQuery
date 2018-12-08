@@ -259,7 +259,7 @@ describe('getTrims()', function () {
         expect(trim.body).toBe('SUV');
         expect(trim.enginePosition).toBe('Front');
         expect(trim.engineCC).toBe(2500);
-        expect(trim.engineCyclinders).toBe(4);
+        expect(trim.engineCylinders).toBe(4);
         expect(trim.engineType).toBe('in-line');
         expect(trim.engineValvesPerCylinder).toBe(4);
         expect(trim.engineHorsepower).toBe(179);

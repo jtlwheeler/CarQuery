@@ -114,7 +114,7 @@ describe('CarQuery API integration tests', function () {
                     expect(trim.body).toBeDefined();
                     expect(trim.enginePosition).toBeDefined();
                     expect(trim.engineCC).toBeDefined();
-                    expect(trim.engineCyclinders).toBeDefined();
+                    expect(trim.engineCylinders).toBeDefined();
                     expect(trim.engineType).toBeDefined();
                     expect(trim.engineValvesPerCylinder).toBeDefined();
                     expect(trim.engineHorsepower).toBeDefined();
