@@ -1,5 +1,6 @@
 # CarQuery API
 ![Build Status](https://img.shields.io/circleci/project/github/jtlwheeler/CarQuery.svg)
+![Build Status](https://img.shields.io/npm/v/car-query.svg)
 
 Wrapper for the [CarQuery](http://www.carqueryapi.com/) API in JavaScript with Promise support.
 
