@@ -23,6 +23,9 @@
     "tslint": "^5.20.1",
     "typescript": "^3.7.5"
   },
+  "peerDependencies": {
+    "minimist": "^0.2.1"
+  },
   "scripts": {
     "build": "yarn build-ts && yarn tslint",
     "build-ts": "tsc",
